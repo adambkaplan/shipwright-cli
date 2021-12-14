@@ -31,8 +31,6 @@ jobs:
         PREVIOUS_TAG: ${{ github.event.inputs.previous-tag }}
       # This creates a set of release notes at Changes.md
       run: |
-        # might not be necessary but make sure
-        chmod +x "${GITHUB_WORKSPACE}/.github/draft_release_notes.sh"
         export GITHUB_TOKEN
         export PREVIOUS_TAG
         "${GITHUB_WORKSPACE}/.github/draft_release_notes.sh"
@@ -40,6 +38,6 @@ jobs:
       uses: goreleaser/goreleaser-action@v2
       with:
         version: latest
-        args: release --rm-dist --release-notes Changes.md
+        args: release --rm-dist --release-notes /tmp/release-notes/Changes.md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
