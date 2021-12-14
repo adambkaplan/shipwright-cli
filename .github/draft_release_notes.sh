@@ -139,3 +139,8 @@ while IFS= read -r pr; do
 done < last-300-prs-with-release-note.txt
 
 cat "${releaseDir}/Features.md"; cat "${releaseDir}/Fixes.md"; cat "${releaseDir}/API.md"; cat "${releaseDir}/Docs.md"; cat "${releaseDir}/Misc.md" >> "${releaseDir}/Changes.md"
+
+echo "Cleaning up"
+
+rm -rf hub-linux-amd64-2.14.2
+rm last-300-prs-with-release-note.txt
