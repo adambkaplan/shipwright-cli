@@ -15,7 +15,6 @@ on:
 jobs:
   release:
     name: Release
-    if: ${{ github.repository == 'shipwright-io/cli' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write # To be able to update releases
